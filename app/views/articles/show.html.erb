@@ -1,1 +1,25 @@
-<h1>Articles#show</h1>
+<%= render 'navbar' %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+        <div class="alert alert-info fade in">
+          <!--<button class="close" data-dismiss="alert">×</button>-->
+          <%= flash[:alert] %>
+        </div>
+      <article>
+        <h1>
+          <%= @article.title %>
+          <small>
+            <%= link_to(@article) do |edit_article_path| %>
+              <i class="fa fa-pencil">EDIT</i>
+            <% end %>
+            <%= link_to 'EDIT'.html_safe, edit_article_path(@article.id)  %>
+            <%= link_to 'DELETE<i class="fa fa-trash-o"></i>'.html_safe, article_path(@article), method: :delete, data: { confirm: "Are you sure?" } %>
+          </small>
+        </h1>
+        <hr>
+        <p><%= @article.content %></p>
+      </article>
+    </div>
+  </div>
+</div>

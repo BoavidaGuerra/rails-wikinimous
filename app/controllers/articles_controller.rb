@@ -22,7 +22,7 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
     @article.save
 
-    redirect_to articles_path
+    redirect_to article_path(@article.id), alert: "Article was successfully created."
   end
 
   def edit; end
@@ -32,14 +32,15 @@ class ArticlesController < ApplicationController
     @article.update(article_params)
     @article.save
 
-    redirect_to articles_path
+    redirect_to article_path(@article.id), alert: "Article was successfully updated."
   end
 
   def destroy
     # set_article was already triggered by before_action
     @article.destroy
 
-    redirect_to articles_path
+    # Need to trigger "Article was successfully destroyed." in index
+    redirect_to articles_path, alert: "Article was successfully destroyed."
   end
 
   private
@@ -51,22 +52,4 @@ class ArticlesController < ApplicationController
   def set_article
     @article = Article.find(params[:id])
   end
-
-  # def index
-  # end
-
-  # def new
-  # end
-
-  # def create
-  # end
-
-  # def edit
-  # end
-
-  # def update
-  # end
-
-  # def destroy
-  # end
 end

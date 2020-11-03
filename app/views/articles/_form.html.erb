@@ -1,0 +1,12 @@
+<%= form_for article do |f| %>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title, class: ''%>
+  </div>
+
+  <div>
+    <%= f.label :content %>
+    <%= f.text_field :content %>
+  </div>
+  <%= f.submit %>
+<% end %>
