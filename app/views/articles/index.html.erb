@@ -1,0 +1,11 @@
+<%= render 'navbar' %>
+
+<h1>List of Articles</h1>
+<section class="articles-list">
+  <div>
+    <% @articles.each do |article| %>
+      <h2><%= article.title %></h2>
+      <p><%= article.content %></p>
+    <% end %>
+  </div>
+</section>
